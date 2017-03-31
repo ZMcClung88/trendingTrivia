@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="/styles/reset.css">
-  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/main.css">
   <title>Trivia Trends</title>
-  <link rel="shortcut icon" href="/styles/assets/crownFavicon.png">
+  <link rel="shortcut icon" href="./styles/assets/crownFavicon.png">
 </head>
 
-<body>
+<body ng-controller="mainController">
   <header>
     <div></div>
     <h1>Trivia Trends</h1>
@@ -27,7 +27,14 @@
       <input type="text" placeholder="Animal to search by">
     </div>
 
+
+
     <!-- Questions go here -->
+  <div class="question-wrapper" ng-repeat="question in questions | filter: search">
+    <h3>{{question.question}}</h3>
+  </div>
+
+
 
   </article>
 
@@ -77,11 +84,11 @@
   </div>
 
 
-
-
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js" charset="utf-8"></script>
   <script src="./app.js" charset="utf-8"></script>
+  <script src="./mainController.js"></script>
+  <script src="./service.js"></script>
+
 </body>
 
 </html>
